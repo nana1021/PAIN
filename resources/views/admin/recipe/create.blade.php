@@ -29,23 +29,23 @@
                 
                     <div class="form-group row" style="margin-bottom: 30px">
                         <label for="category" class="col-md-2">カテゴリー</label>
-                      <select class="form-control @error('category') is-invalid @enderror" id="category" name="category">
+                      <select class="form-control @error('category') is-invalid @enderror" id="category" name="category_name">
                         <option value="" disabled selected style="display: none;">カテゴリーを選択してください。</option>
                     @foreach(App\Category::all() as $category)
-                        <option value="{{ $category->id }}" @if($category->id == $category->category_id) selected @endif>{{ $category->name }}</option>
+                        <option value="{{ $category->name }}" @if($category->id == $category->category_id) selected @endif>{{ $category->name }}</option>
                     @endforeach
                       </select>
                     @error('category')
                     <p class="text-danger">{{ $message }}</p>
                     @enderror
-                       <div class="text-right mt-2">
+                       <div class="text-right mt-4">
                     <a type="button" href="{{ url('/admin/category/create') }}" class="btn btn-outline-secondary py-1" role="button">新規追加</a>
                     <a type="button" href="{{ url('/admin/category') }}" class="btn btn-outline-secondary py-1" role="button">編集</a>
                        </div>
                     </div>
                 
                     <div class="form-group row">
-                        <label class="col-md-2" for="title">タイトル</label>
+                        <label class="col-md-2" for="title">品名</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="title" value="{{ old('title') }}">
                         </div>

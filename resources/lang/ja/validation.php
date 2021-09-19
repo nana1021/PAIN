@@ -147,7 +147,7 @@ return [
 
     'attributes' => [
        'image_path' => '完成写真',
-       'title' => 'タイトル',
+       'title' => '品名',
        'body' => 'process1',
        'name' => 'カテゴリー',
     ],

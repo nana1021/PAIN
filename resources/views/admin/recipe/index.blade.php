@@ -32,18 +32,20 @@
                         <thead>
                             <tr>
                                 <th width="10%">ID</th>
+                                <th width="20%">写真</th>
                                 <th scope="15%">カテゴリー</th>
                                 <th width="20%">品名</th>
-                                <th width="50%">process</th>
+                              -{{--  <th width="50%">process</th> --}}
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($posts as $recipe)
                                 <tr>
                                     <th>{{ $recipe->id }}</th>
+                                    <td>{{ \Str::limit($recipe->image, 100) }}</td>
                                     <td>{{ \Str::limit($recipe->category_name, 100) }}</td>
                                     <td>{{ \Str::limit($recipe->title, 100) }}</td>
-                                    <td>{{ \Str::limit($recipe->body, 250) }}</td>
+                              {{--      <td>{{ \Str::limit($recipe->body, 250) }}</td> --}}
                                 <td>
                                        {{ csrf_field() }}
                                     <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
@@ -53,19 +55,18 @@
                                       <a href="{{ action('Admin\RecipeController@edit', ['id' => $recipe->id]) }}">
                                       <button type="button" class="btn btn-outline-danger"><i class="far fa-edit"></i> 編集</button></a>
                                     </div>
+                                      
+                                     <div class="btn-toolbar">
                                       <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal{{$recipe->id}}"><i class="far fa-trash-alt"></i> 削除</button>
-                                    
           {{-- <button type="button" class="btn btn-outline-primary"><i class="far fa-trash-alt"></i> 削除</button> 
-           <!-- Button trigger modal -->
-                                {{--     <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal{{$category->id}}"><i class="far fa-trash-alt"></i> 削除</button>
---}}
+           <!-- Button trigger modal -->  --}}
                                  <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal{{$recipe->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                      <div class="modal-dialog" role="document">
-                                    <form action="{{ action('Admin\RecipeController@delete', [ 'recipe' => $recipe->id ]) }}" method="POST">
+                                      <div class="modal fade" id="exampleModal{{$recipe->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                          <form action="{{ route('recipe.destroy', [ 'recipe' => $recipe->id ]) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                       <div class="modal-content">
+                                        <div class="modal-content">
                                         <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabel">ルセット削除</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -83,7 +84,12 @@
                                           </form>
                                         </div>
                                        </div>
-                                     </td>
+                                       <div>
+                                      <a href="{{ action('Admin\RecipeController@show', ['id' => $recipe->id]) }}">
+                                      <button type="button" class="btn btn-outline-success"><i class="far fa-edit"></i> ルセット詳細</button></a>
+                                    </div>
+                                    </div>
+                                    </td>
                                    </td>   
                                 </tr> 
                             @endforeach  

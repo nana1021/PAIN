@@ -38,8 +38,14 @@ class RecipeController extends Controller
       
       return redirect('admin/recipe/create');
     }
+        
+    public function store(Request $request)
+    {  
+         return view('/admin/recipe/create');
+    }
+    
     public function index(Request $request)
-  {
+    {
       $cond_title = $request->cond_title; //$cond_titleに値を代入、なければnull 下の行の$cond_title
       if ($cond_title != '') {
           // 検索されたら検索結果を取得する
@@ -95,38 +101,19 @@ public function edit(Request $request)
       return redirect('/admin/recipe')->with('message','ルセットが更新されました。');
   }
   
-  public function delete(Request $request)
+  public function destroy($id)
   {
-      // 該当するNews Modelを取得
-      $recipe = Recipe::find($request->id);
+      // 該当するModelを取得
+      $recipe = Recipe::find($id);
       // 削除する
       $recipe->delete();
-      return redirect('admin/recipe');
-  }  
+      return redirect('/admin/recipe')->with('message','ルセットが削除されました。');
+  }
 
- //   public function recipe()
-  //  {
- //     $recipe = Auth::user()->recipes;
- //     return view('admin.recipe.index',['recipes'=>$recipes]);
-//    }
-    
-//     public function show($id)
- //   {
-        //
-  //  }
-    
-//   public function edit($id)
- //  {
- //     $recipe = Recipe::find($id);
- //     return view('admin.recipe.edit', ['recipe' => $recipe]);
-  // }
-  
-
-  
-//  public function destroy($id)
-  //  {
-      //  $recipe = Recipe::find($id);
-    //    $recipe->delete();
-    //    return redirect('/admin/recipe')->with('message', 'ルセットが削除されました。');
-  //  }
+     public function show($id)
+    {
+      $recipe = Recipe::find($id);
+      
+      return view('recipe.show');
+    }
 }

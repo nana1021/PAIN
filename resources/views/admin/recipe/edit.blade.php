@@ -38,7 +38,7 @@
                     <div class="form-group row" style="margin-bottom: 30px">
                         <label for="category" class="col-md-2">カテゴリー</label>
                       <select class="form-control @error('category') is-invalid @enderror" id="category" name="category_name">
-                        <option value="" disabled selected style="display: none;">カテゴリーを選択してください。</option>
+                        <option value="{{ $recipe_form->category_name }}" disabled style="display: none;">{{ $recipe_form->category_name }}</option>
                     @foreach(App\Category::all() as $category)
                         <option value="{{ $category->name }}" @if($category->id == $category->category_id) selected @endif>{{ $category->name }}</option>
                     @endforeach
@@ -73,44 +73,6 @@
                             <input type="submit" class="btn btn-primary" value="更新">
                         </div>
                     </div>
-                    
-                    
-                    {{-- {{ csrf_field() }}
-                    <input type="submit" class="btn btn-primary" value="更新">
-                    
-                    <div class="form-group row">
-                        <label class="col-md-2" for="title">タイトル</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" name="title" value="{{ $recipe_form->title }}">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-md-2" for="body">本文</label>
-                        <div class="col-md-10">
-                            <textarea class="form-control" name="body" rows="20">{{ $recipe_form->body }}</textarea>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-md-2" for="image">画像</label>
-                        <div class="col-md-10">
-                            <input type="file" class="form-control-file" name="image">
-                            <div class="form-text text-info">
-                                設定中: {{ $recipe_form->image_path }}
-                            </div>
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="remove" value="true">画像を削除
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-md-10">
-                            <input type="hidden" name="id" value="{{ $recipe_form->id }}">
-                            {{ csrf_field() }}
-                            <input type="submit" class="btn btn-primary" value="更新">
-                        </div>
-                    </div>  --}}
                 </form>
             </div>
         </div>

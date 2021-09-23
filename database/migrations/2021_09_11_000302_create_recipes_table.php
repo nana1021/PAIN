@@ -19,6 +19,8 @@ class CreateRecipesTable extends Migration
             $table->string('category_name');
             $table->string('title');
             $table->string('body');
+            $abtle->integer('user_id');
+            $table->string('edited_at');
             $table->timestamps();
         });
     }

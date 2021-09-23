@@ -29,7 +29,7 @@
                 
                     <div class="form-group row" style="margin-bottom: 40px">
                         <label for="category" class="col-md-2">カテゴリー</label>
-                      <select class="form-control @error('category') is-invalid @enderror" id="category" name="category_name">
+                      <select class="form-control @error('category') is-invalid @enderror col-md-10" id="category" name="category_name">
                         <option value="" disabled selected style="display: none;">カテゴリーを選択してください。</option>
                     @foreach(App\Category::all() as $category)
                         <option value="{{ $category->name }}" @if($category->id == $category->category_id) selected @endif>{{ $category->name }}</option>
@@ -51,7 +51,7 @@
                         </div>
                     </div>
                     
-                    <label class="col-md-2" for="title">材料名</label>
+               {{--     <label class="col-md-2" for="title">材料名</label>
                             <div class="form-group material-box ">
                                 <input class="material-input" type="text" name="material_0">
                                 <input class="volume-input" type="text" name="volume_0">
@@ -64,7 +64,7 @@
                             </div>
 
                             <input class="form-plus" id="addInput" type="button" value="+">
-                            <input class="form-plus" type="button" id="deleteInput" value="-">
+                            <input class="form-plus" type="button" id="deleteInput" value="-">  --}}
 
                   　<div class="form-group row">
                         <label class="col-md-2" for="body">process</label>

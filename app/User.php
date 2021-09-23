@@ -37,6 +37,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
+    protected $guarded = array('id');
+
+    public static $rules = array(
+        'id' => 'required',
+        'image_path' => 'required',
+        'category_name' => 'required',
+        'title' => 'required',
+        'body' => 'required',
+    );
+    
     public function recipes()
     {
         return $this->hasMany('App\Recipe'); 

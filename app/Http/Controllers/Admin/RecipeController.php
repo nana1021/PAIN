@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Recipe;
 use App\Category;
+use App\User;
 use Auth;
 
 class RecipeController extends Controller
@@ -38,34 +39,27 @@ class RecipeController extends Controller
       
       return redirect('admin/recipe/create');
     }
-        
-    public function store(Request $request)
-    {  
-         return view('/admin/recipe/create');
-    }
     
     public function index(Request $request)
     {
       $cond_title = $request->cond_title; //$cond_titleに値を代入、なければnull 下の行の$cond_title
-      if ($cond_title != '') {
+        if ($cond_title != '') {
           // 検索されたら検索結果を取得する
           $posts = Recipe::where('title', $cond_title)->get();
       } else {
           // それ以外はすべてのニュースを取得する
-          $posts = Recipe::all();
+         $posts = Recipe::all();  
       }
-      return view('admin.recipe.index', ['posts' => $posts, 'cond_title' => $cond_title]);
-  }
+     return view('admin.recipe.index',['posts' => $posts, 'cond_title' => $cond_title]);
+    }
   
-  public function getRecipeShow()
-{
-    // Recipeモデルのデータを取得
+     public function getRecipeShow($id)
+    {
     $recipes = Auth::user()->recipes;
-
-        return view('admin.recipe.index',['recipes'=>$recipes]);
-}
-  
-public function edit(Request $request)
+    return view('admin.recipe.index',['recipes'=>$recipes]);
+    }
+    
+    public function edit(Request $request)
   {
       // News Modelからデータを取得する
       $recipe = Recipe::find($request->id);
@@ -74,8 +68,8 @@ public function edit(Request $request)
       }
       return view('admin.recipe.edit', ['recipe_form' => $recipe]);
   }
-
-
+  
+  
   public function update(Request $request)
   {
       // Validationをかける
@@ -83,7 +77,7 @@ public function edit(Request $request)
       // News Modelからデータを取得する
       $recipe = Recipe::find($request->id);
       // 送信されてきたフォームデータを格納する
-      $news_form = $request->all();
+      $recipe_form = $request->all();
       if ($request->remove == 'true') {
           $recipe_form['image_path'] = null;
       } elseif ($request->file('image')) {
@@ -98,6 +92,7 @@ public function edit(Request $request)
       unset($recipe_form['_token']);
       // 該当するデータを上書きして保存する
       $recipe->fill($recipe_form)->save();
+        
       return redirect('/admin/recipe')->with('message','ルセットが更新されました。');
   }
   
@@ -114,6 +109,6 @@ public function edit(Request $request)
     {
       $recipe = Recipe::find($id);
       
-      return view('recipe.show');
+      return view('admin.recipe.show');
     }
 }

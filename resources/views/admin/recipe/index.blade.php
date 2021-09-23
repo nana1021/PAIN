@@ -13,6 +13,12 @@
             <div class="col-md-8">
                 <form action="{{ action('Admin\RecipeController@index') }}" method="get">
                     <div class="form-group row">
+                        <label class="col-md-2" for="title">完成写真</label>
+                        <div class="col-md-10">
+                            <input type="file" class="form-control-file" name="image">
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label class="col-md-2">品名</label>
                         <div class="col-md-8">
                             <input type="text" class="form-control" name="cond_title" value="{{ $cond_title }}">
@@ -48,9 +54,9 @@
                               {{--      <td>{{ \Str::limit($recipe->body, 250) }}</td> --}}
                                 <td>
                                        {{ csrf_field() }}
-                                    <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+                                    <input type="hidden" name="user_id" value="{{Auth::user()->id}}">  
                                     
-                                    <td>
+                                    <td>  
                                     <div>
                                       <a href="{{ action('Admin\RecipeController@edit', ['id' => $recipe->id]) }}">
                                       <button type="button" class="btn btn-outline-danger"><i class="far fa-edit"></i> 編集</button></a>
@@ -99,4 +105,3 @@
             </div>
         </div>
     </div>
-@endsection

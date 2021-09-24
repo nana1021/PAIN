@@ -44,6 +44,7 @@ class User extends Authenticatable
         'image_path' => 'required',
         'category_name' => 'required',
         'title' => 'required',
+        'material' => 'required',
         'body' => 'required',
     );
     

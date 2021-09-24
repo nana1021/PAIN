@@ -22,7 +22,7 @@ Route::post('recipe/create', 'Admin\RecipeController@create')->middleware('auth'
 Route::get('recipe', 'Admin\RecipeController@index')->middleware('auth');
 Route::get('recipe/edit', 'Admin\RecipeController@edit')->middleware('auth');
 Route::post('recipe/edit', 'Admin\RecipeController@update')->middleware('auth');
-Route::get('recipe/show', 'Admin\RecipeController@show')->middleware('auth');
+Route::get('recipe/{id}', 'Admin\RecipeController@show')->name('admin.recipe.show')->middleware('auth');
 Route::resource('recipe', 'Admin\RecipeController', ['only' => [ 'destroy']]);
 Route::resource('category', 'Admin\CategoryController')->middleware('auth');
 });

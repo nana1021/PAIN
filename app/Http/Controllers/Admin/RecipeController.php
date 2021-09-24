@@ -104,11 +104,11 @@ class RecipeController extends Controller
       $recipe->delete();
       return redirect('/admin/recipe')->with('message','ルセットが削除されました。');
   }
-
-     public function show($id)
-    {
+    
+  public function show(Request $request,$id,Recipe $recipe)
+  {
       $recipe = Recipe::find($id);
-      
-      return view('admin.recipe.show');
-    }
+      return view('admin.recipe.show',['recipe'=>$recipe]);
+  }
+    
 }

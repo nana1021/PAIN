@@ -65,9 +65,16 @@
 
                             <input class="form-plus" id="addInput" type="button" value="+">
                             <input class="form-plus" type="button" id="deleteInput" value="-">  --}}
-
+                    <div class="form-group row">
+                        <label class="col-md-2" for="body">材料</label>
+                        <div class="col-md-10">
+                            <textarea class="form-control" name="material" rows="5">{{ old('material') }}</textarea>
+                        </div>
+                    </div>  
+                  　
+                  　
                   　<div class="form-group row">
-                        <label class="col-md-2" for="body">process</label>
+                        <label class="col-md-2" for="body">作り方</label>
                         <div class="col-md-10">
                             <textarea class="form-control" name="body" rows="5">{{ old('body') }}</textarea>
                         </div>

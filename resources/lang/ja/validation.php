@@ -148,8 +148,9 @@ return [
     'attributes' => [
        'image_path' => '完成写真',
        'title' => '品名',
-       'body' => 'process1',
+       'body' => '作り方',
        'name' => 'カテゴリー',
+       'material' => '材料',
     ],
 
 ];

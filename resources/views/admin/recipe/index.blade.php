@@ -9,15 +9,19 @@
         <div class="row">
             <div class="col text-left">
                 <a type="button" href="{{ url('admin/recipe/create/') }}" class="btn btn-primary text-right" role="button"><i class="fas fa-plus"></i> 新規追加</a>
-            </div>
-            <div class="col-md-8">
-                <form action="{{ action('Admin\RecipeController@index') }}" method="get">
-                    <div class="form-group row">
-                        <label class="col-md-2" for="title">完成写真</label>
-                        <div class="col-md-10">
-                            <input type="file" class="form-control-file" name="image">
+            </div> 
+                {{--<div class="row">
+                    <div class="col-md-6">
+                        <div class="caption mx-auto">
+                            <div class="image">
+                            @if ($post->image_path)
+                            <img src="{{ asset('storage/image/' . $post->image_path) }}">
+                            @endif
+                            </div>
                         </div>
                     </div>
+                </div>  --}}
+            
                     <div class="form-group row">
                         <label class="col-md-2">品名</label>
                         <div class="col-md-8">
@@ -48,7 +52,8 @@
                             @foreach($posts as $recipe)
                                 <tr>
                                     <th>{{ $recipe->id }}</th>
-                                    <td>{{ \Str::limit($recipe->image, 100) }}</td>
+                                    <td>{{ \Str::limit($recipe->image, 100) }}
+                                <img src="{{ asset('storage/image/' . $recipe->image_path) }}" "img.jpg" class="img-circle" width="200" height="200"></td>
                                     <td>{{ \Str::limit($recipe->category_name, 100) }}</td>
                                     <td>{{ \Str::limit($recipe->title, 100) }}</td>
                               {{--      <td>{{ \Str::limit($recipe->body, 250) }}</td> --}}

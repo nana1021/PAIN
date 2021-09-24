@@ -60,7 +60,14 @@
                     </div>
                     
                     <div class="form-group row">
-                        <label class="col-md-2" for="body">process</label>
+                        <label class="col-md-2" for="material">材料</label>
+                        <div class="col-md-10">
+                            <textarea class="form-control" name="material" rows="20">{{ $recipe_form->material }}</textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-md-2" for="body">作り方</label>
                         <div class="col-md-10">
                             <textarea class="form-control" name="body" rows="20">{{ $recipe_form->body }}</textarea>
                         </div>

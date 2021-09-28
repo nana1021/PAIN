@@ -37,18 +37,23 @@ class RecipeController extends Controller
       $recipe->fill($form);
       $recipe->save();
       
-      return redirect('admin/recipe');
+      return redirect('admin/recipe/create');
     }
     
     public function index(Request $request)
     {
-      $cond_title = $request->cond_title; //$cond_titleに値を代入、なければnull 下の行の$cond_title
+      $user_id = $request->user_id;
+        if($user_id != '') {
+          $posts = Recipe::where('user_id', $user_id)->get();
+      } else{
+          // それ以外はすべてのニュースを取得する
+         $posts = null;  
+      }
+      $cond_title = $request->cond_title;//$cond_titleに値を代入、なければnull 下の行の$cond_title
+      $cond_title_find = ['user_id' => '$user_id', 'cond_title' => '$cond_title']; 
         if ($cond_title != '') {
           // 検索されたら検索結果を取得する
-          $posts = Recipe::where('title', $cond_title)->get();
-      } else {
-          // それ以外はすべてのニュースを取得する
-         $posts = Recipe::all();  
+          $posts = Recipe::where($cond_title_find)->get();
       }
      return view('admin.recipe.index',['posts' => $posts, 'cond_title' => $cond_title]);
     }

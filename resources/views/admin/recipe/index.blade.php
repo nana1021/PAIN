@@ -37,6 +37,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @if($posts != null)
                             @foreach($posts as $recipe)
                                 <tr>
                                     <th>{{ $recipe->id }}</th>
@@ -94,7 +95,10 @@
                                     </td>
                                    </td>   
                                 </tr> 
-                            @endforeach  
+                            @endforeach
+                            @else
+                            <h2>まだ投稿されてません</h2>
+                            @endif
                         </tbody>
                     </table>
                 </div>

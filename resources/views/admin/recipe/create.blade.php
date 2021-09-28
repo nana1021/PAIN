@@ -78,8 +78,8 @@
                         <div class="col-md-10">
                             <textarea class="form-control" name="body" rows="5">{{ old('body') }}</textarea>
                         </div>
-                    </div>  
-                    
+                    </div>
+                     <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
                     {{ csrf_field() }}
                     <input type="submit" class="btn btn-danger" value="更新">
                 </form>

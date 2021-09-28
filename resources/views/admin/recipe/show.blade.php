@@ -26,10 +26,10 @@
                                 @endif
                            </div>
                            <div class="body mt-3">
-                           <p>材料 : {{ str_limit($recipe->material, 1500) }}</p>
+                           <p class="text-prewrap">材料 : {{ str_limit($recipe->material, 1500) }}</p>
                            </div>
                           <div class="body mt-3">
-                           <p>作り方 : {{ str_limit($recipe->body, 1500) }}</p>
+                           <p class="text-prewrap">作り方 : {{ str_limit($recipe->body, 1500) }}</p>
                 </div>
             </div> 
         </div>

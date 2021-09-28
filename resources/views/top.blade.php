@@ -25,7 +25,7 @@
 <div class="ht-tm-navbar bg-light text-white navbar-dark">
   <div class="container">
       <nav class="ht-tm-nav">
-        <a href="/admin/recipe" class="text-decoration-none text-danger">ルセット検索</a>
+        <a href="{{ action('Admin\RecipeController@index', ['user_id' =>Auth::user()->id ]) }}">ルセット検索</a>
         <a href="/admin/recipe/create" class="text-decoration-none text-danger">　　ルセット作成</a>
       </nav>
     </div>

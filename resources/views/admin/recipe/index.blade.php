@@ -8,20 +8,8 @@
         </div>
         <div class="row">
             <div class="col text-left">
-                <a type="button" href="{{ url('admin/recipe/create/') }}" class="btn btn-primary text-right" role="button"><i class="fas fa-plus"></i> 新規追加</a>
-            </div> 
-                {{--<div class="row">
-                    <div class="col-md-6">
-                        <div class="caption mx-auto">
-                            <div class="image">
-                            @if ($post->image_path)
-                            <img src="{{ asset('storage/image/' . $post->image_path) }}">
-                            @endif
-                            </div>
-                        </div>
-                    </div>
-                </div>  --}}
-            
+                <a type="button" href="{{ url('admin/recipe/create/') }}" class="btn btn-danger text-right" role="button"><i class="fas fa-plus"></i> 新規追加</a>
+            </div>
                     <div class="form-group row">
                         <label class="col-md-2">品名</label>
                         <div class="col-md-8">
@@ -29,22 +17,22 @@
                         </div>
                         <div class="col-md-2">
                             {{ csrf_field() }}
-                            <input type="submit" class="btn btn-primary" value="検索">
+                            <input type="submit" class="btn btn-danger" value="検索">
                         </div>
                     </div>
                 </form>
             </div>
         </div>
         <div class="row">
-            <div class="list-recipe col-md-12 mx-auto">
+            <div class="list-recipe col-md-8 mx-auto">
                 <div class="row">
-                    <table class="table table-dark">
+                    <table class="table table-info">
                         <thead>
                             <tr>
-                                <th width="10%">ID</th>
+                                <th width="5%">ID</th>
                                 <th width="20%">写真</th>
-                                <th scope="15%">カテゴリー</th>
-                                <th width="20%">品名</th>
+                                <th scope="20%">カテゴリー</th>
+                                <th width="30%">品名</th>
                               -{{--  <th width="50%">process</th> --}}
                             </tr>
                         </thead>
@@ -53,15 +41,20 @@
                                 <tr>
                                     <th>{{ $recipe->id }}</th>
                                     <td>{{ \Str::limit($recipe->image, 100) }}
-                                <img src="{{ asset('storage/image/' . $recipe->image_path) }}" "img.jpg" class="img-circle" width="200" height="200"></td>
-                                    <td>{{ \Str::limit($recipe->category_name, 100) }}</td>
+                                      <img src="{{ asset('storage/image/' . $recipe->image_path) }}"class="rounded-circle"></td>
+                                    <td>{{ \Str::limit($recipe->category_name, 70) }}</td>
                                     <td>{{ \Str::limit($recipe->title, 100) }}</td>
                               {{--      <td>{{ \Str::limit($recipe->body, 250) }}</td> --}}
                                 <td>
                                        {{ csrf_field() }}
                                     <input type="hidden" name="user_id" value="{{Auth::user()->id}}">  
                                     
-                                    <td>  
+                                    <td>
+                                    <div class="btn-group" role="group" aria-label="ボタングループ">   
+                                    <div>
+                                      <a href="{{ action('Admin\RecipeController@show', ['id' => $recipe->id]) }}">
+                                      <button type="button" class="btn btn-outline-success"><i class="far fa-edit"></i> ルセット詳細</button></a>
+                                    </div>
                                     <div>
                                       <a href="{{ action('Admin\RecipeController@edit', ['id' => $recipe->id]) }}">
                                       <button type="button" class="btn btn-outline-danger"><i class="far fa-edit"></i> 編集</button></a>
@@ -95,9 +88,7 @@
                                           </form>
                                         </div>
                                        </div>
-                                       <div>
-                                      <a href="{{ action('Admin\RecipeController@show', ['id' => $recipe->id]) }}">
-                                      <button type="button" class="btn btn-outline-success"><i class="far fa-edit"></i> ルセット詳細</button></a>
+                                       
                                     </div>
                                     </div>
                                     </td>
@@ -110,3 +101,4 @@
             </div>
         </div>
     </div>
+@endsection

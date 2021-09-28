@@ -77,7 +77,7 @@
                         <div class="col-md-10">
                             <input type="hidden" name="id" value="{{ $recipe_form->id }}">
                             {{ csrf_field() }}
-                            <input type="submit" class="btn btn-primary" value="更新">
+                            <input type="submit" class="btn btn-danger" value="更新">
                         </div>
                     </div>
                 </form>

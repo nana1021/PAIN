@@ -1,9 +1,36 @@
-body {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: #ffffff;
-  color: #000;
+@font-face {
+  font-family: 'Corporate-Logo';
+  src: url('../fonts/Corporate-Logo-Medium-ver2.ttf');
 }
+
+body {
+  height: 100vh;
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center center;
+  font-family: "Corporate-Logo";
+}
+
+.box {
+  padding: 1em;
+  margin: auto auto;
+  width: 77%;
+  color: #fff;
+  border: dotted;
+  border-color: #0000AA;
+  border-width: 12px 12px;
+  border-radius: 240px 15px 100px 15px / 15px 200px 15px 185px;
+  background-color: rgba( 0, 187, 0, 0.85 );
+}
+
+.py-4 {
+  height: 100vh;
+  background-image: url(../images/bread.png);
+  background-size: 15%;
+  padding-top: 10vh;
+  
+}
+
 
 .navbar-laravel {
   background-color: #dc3545;
@@ -12,14 +39,29 @@ body {
 
 .navbar-brand {
   color: #fff !important;
+  font-size: 25px;
 }
 
-.nav-link {
+.nav-item {
   color: #fff !important;
+  font-size: 20px;
+  position: relative;
+  left: 250px;
 }
 
-.table-dark {
+.nav-link a {
+  display: inline-block;
+  position: relative;
+  left: 170px;
+  list-style: none;
+  padding: 10px;
   color: #fff;
+  font-size: 15px;
+}
+
+.table {
+  color: #fff;
+  background-color: rgba(0, 250, 0, 0.75);
 }
 
 .list-group-item {
@@ -28,18 +70,67 @@ body {
 }
 
 .login-box {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 250, 0, 0.25);
+  border: 2px solid #336666;
+  border-radius: 240px 15px 100px 15px / 15px 200px 15px 185px;
 }
 
 .login-header {
-  background-color: rgba(0, 0, 0, 0.25)
+  background-color: rgba(0, 250, 90, 0.25)
 }
 
 .login-body {
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: rgba(230, 250, 80, 0.25);
+  border-radius: 240px 15px 100px 15px / 15px 200px 15px 185px;
 }
 img {
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
+}
+
+table {
+  margin: 0.5rem;
+  width: 100%;
+}
+th {
+  font-weight: normal;
+  background: #f8f6f2;
+  vertical-align: middle;
+  padding: 1rem;
+}
+.text-prewrap{
+   white-space: pre-wrap;
+}
+p,
+td {
+  display: block;
+}
+.btn {
+  display: inline-block;
+  padding: .75em 4em;
+  border: 2px solid #333;
+  border-radius: 3em .5em 2em .5em/.4em 2em .5em 3em;
+  color: #333;
+  text-decoration: none;
+  text-align: center;
+}
+
+button {
+  height: 50px;
+  width: 80%;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: start;
+}
+.card {
+  margin: 50px;
+  border-radius: 240px 15px 100px 15px / 15px 200px 15px 185px;
+  border: 2px solid #336666;
+}
+.card-header {
+  background-color: rgba(20, 250, 80, 0.2);
+}
+.card-body {
+  background-color: rgba(230, 250, 80, 0.2);
 }

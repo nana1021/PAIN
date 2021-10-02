@@ -4,7 +4,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <h2>ルセット一覧</h2>
+            <h1 class="text-primary">ルセット一覧</h1>
         </div>
         <div class="row">
             <div class="col text-left">
@@ -32,7 +32,8 @@
                                 <th width="5%">ID</th>
                                 <th width="20%">写真</th>
                                 <th scope="20%">カテゴリー</th>
-                                <th width="30%">品名</th>
+                                <th width="40%">品名</th>
+                                <th width="10%"></th>
                               -{{--  <th width="50%">process</th> --}}
                             </tr>
                         </thead>
@@ -40,18 +41,14 @@
                             @if($posts != null)
                             @foreach($posts as $recipe)
                                 <tr>
-                                    <th>{{ $recipe->id }}</th>
+                                    <td>{{ $recipe->id }}</td>
                                     <td>{{ \Str::limit($recipe->image, 100) }}
                                       <img src="{{ asset('storage/image/' . $recipe->image_path) }}"class="rounded-circle"></td>
-                                    <td>{{ \Str::limit($recipe->category_name, 70) }}</td>
+                                    <td>{{ \Str::limit($recipe->category_name) }}</td>
                                     <td>{{ \Str::limit($recipe->title, 100) }}</td>
                               {{--      <td>{{ \Str::limit($recipe->body, 250) }}</td> --}}
-                                <td>
-                                       {{ csrf_field() }}
-                                    <input type="hidden" name="user_id" value="{{Auth::user()->id}}">  
-                                    
                                     <td>
-                                    <div class="btn-group" role="group" aria-label="ボタングループ">   
+  
                                     <div>
                                       <a href="{{ action('Admin\RecipeController@show', ['id' => $recipe->id]) }}">
                                       <button type="button" class="btn btn-outline-success"><i class="far fa-edit"></i> ルセット詳細</button></a>
@@ -60,8 +57,7 @@
                                       <a href="{{ action('Admin\RecipeController@edit', ['id' => $recipe->id]) }}">
                                       <button type="button" class="btn btn-outline-danger"><i class="far fa-edit"></i> 編集</button></a>
                                     </div>
-                                      
-                                     <div class="btn-toolbar">
+                                    <div class="btn-toolbar">
                                       <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal{{$recipe->id}}"><i class="far fa-trash-alt"></i> 削除</button>
           {{-- <button type="button" class="btn btn-outline-primary"><i class="far fa-trash-alt"></i> 削除</button> 
            <!-- Button trigger modal -->  --}}
@@ -89,15 +85,12 @@
                                           </form>
                                         </div>
                                        </div>
-                                       
                                     </div>
-                                    </div>
-                                    </td>
-                                   </td>   
+                                  </td>  
                                 </tr> 
                             @endforeach
                             @else
-                            <h2>まだ投稿されてません</h2>
+                            <h3>まだ投稿されてません</h3>
                             @endif
                         </tbody>
                     </table>

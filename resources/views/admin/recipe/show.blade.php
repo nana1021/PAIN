@@ -12,7 +12,7 @@
                     <h1>{{ str_limit($recipe->title, 150) }}</h1>
                 </div>
   <div class="text-right">
-  <a href="{{ action('Admin\RecipeController@index', ['id' => $recipe->id]) }}">＜ 一覧に戻る</a>
+  <a href="{{ action('Admin\RecipeController@index', ['user_id' => Auth::user()->id]) }}">＜ 一覧に戻る</a>
   </div>
  <hr color="#c0c0c0">
     <div class="row">
@@ -25,11 +25,17 @@
                                     <img src="{{ asset('storage/image/' . $recipe->image_path) }}"class="rounded">
                                 @endif
                            </div>
-                           <div class="body mt-3">
-                           <p class="text-prewrap">材料 : {{ str_limit($recipe->material, 1500) }}</p>
-                           </div>
-                          <div class="body mt-3">
-                           <p class="text-prewrap">作り方 : {{ str_limit($recipe->body, 1500) }}</p>
+                        <table border="1">
+                        <tr class="body mt-5">
+                        <th>材料</th>
+                        <td class="text-prewrap">{{ str_limit($recipe->material, 500) }}</td>
+                        </table>
+                        <table border="1">
+                        <tr class="body mt-5">
+                        <th>作り方</th>
+                        <td class="text-prewrap">{{ str_limit($recipe->body, 500) }}</td>
+                        </tr>
+                        </table>
                 </div>
             </div> 
         </div>

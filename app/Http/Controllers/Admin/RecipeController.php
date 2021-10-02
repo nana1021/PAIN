@@ -57,12 +57,6 @@ class RecipeController extends Controller
       }
      return view('admin.recipe.index',['posts' => $posts, 'cond_title' => $cond_title]);
     }
-  
-     public function getRecipeShow($id)
-    {
-    $recipes = Auth::user()->recipes;
-    return view('admin.recipe.index',['recipes'=>$recipes]);
-    }
     
     public function edit(Request $request)
   {
@@ -79,7 +73,7 @@ class RecipeController extends Controller
   {
       // Validationをかける
       $this->validate($request, Recipe::$rules);
-      // News Modelからデータを取得する
+      // Modelからデータを取得する
       $recipe = Recipe::find($request->id);
       // 送信されてきたフォームデータを格納する
       $recipe_form = $request->all();
@@ -98,7 +92,7 @@ class RecipeController extends Controller
       // 該当するデータを上書きして保存する
       $recipe->fill($recipe_form)->save();
         
-      return redirect('/admin/recipe')->with('message','ルセットが更新されました。');
+      return redirect('/')->with('message','ルセットが更新されました。');
   }
   
   public function destroy($id)
@@ -115,5 +109,7 @@ class RecipeController extends Controller
       $recipe = Recipe::find($id);
       return view('admin.recipe.show',['recipe'=>$recipe]);
   }
+  
+  
     
 }

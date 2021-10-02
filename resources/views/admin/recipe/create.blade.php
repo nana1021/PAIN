@@ -5,11 +5,13 @@
 @section('title', 'ルセット新規投稿')
 
 {{-- admin.blade.phpの@yield('content')に以下のタグを埋め込む --}}
+
 @section('content')
     <div class="container">
         <div class="row">
+            <div class=box>
             <div class="col-md-8 mx-auto">
-                <h2>ルセット投稿</h2>
+                <h1>ルセット投稿</h1>
                 <form action="{{ action('Admin\RecipeController@create') }}" method="post" enctype="multipart/form-data">
 
                     @if (count($errors) > 0)
@@ -39,8 +41,8 @@
                     <p class="text-danger">{{ $message }}</p>
                     @enderror
                        <div class="text-right mt-2">
-                    <a type="button" href="{{ url('/admin/category/create') }}" class="btn btn-outline-secondary py-1" role="button">新規追加</a>
-                    <a type="button" href="{{ url('/admin/category') }}" class="btn btn-outline-secondary py-1" role="button">編集</a>
+                    <a type="button" href="{{ url('/admin/category/create') }}" class="btn btn-primary py-1" role="button">新規追加</a>
+                    <a type="button" href="{{ url('/admin/category') }}" class="btn btn-warning py-1" role="button">編集</a>
                        </div>
                     </div>
                 
@@ -79,11 +81,12 @@
                             <textarea class="form-control" name="body" rows="5">{{ old('body') }}</textarea>
                         </div>
                     </div>
-                     <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
                     {{ csrf_field() }}
-                    <input type="submit" class="btn btn-danger" value="更新">
+                     <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+                     <input type="submit" class="btn btn-danger" value="更新">
                 </form>
             </div>
         </div>
     </div>
+    </dev>
 @endsection

@@ -1,6 +1,10 @@
 // Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+// @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
 
+@font-face {
+  font-family: "Corporate-Logo";
+  src: url('../fonts/Corporate-Logo.ttf');
+}
 // Variables
 @import "variables";
 

@@ -16,11 +16,16 @@ class CreateRecipesTable extends Migration
         Schema::create('recipes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('image_path');
+            $table->string('sales_status');
             $table->string('category_name');
             $table->string('title');
+            $table->string('material');
             $table->string('body');
-            $abtle->integer('user_id');
+            $table->string('memo');
+            $table->integer('user_id');
             $table->string('edited_at');
+            $table->string('created_at');
+            $table->string('updated_at');
             $table->timestamps();
         });
     }

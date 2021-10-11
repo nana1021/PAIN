@@ -14,21 +14,11 @@
  <table class="table table-bordered mt-2">
    <thead class="table-dark">
      <tr>
-       <th scope="col">
-         #
-       </th>
-       <th scope="col">
-         作成日
-       </th>
-       <th scope="col">
-         カテゴリー
-       </th>
-       <th scope="col">
-         編集
-       </th>
-       <th scope="col">
-         削除
-       </th>
+       <th scope="col"> #</th>
+       <th scope="col">作成日</th>
+       <th scope="col">カテゴリー</th>
+       <th scope="col">編集</th>
+       <th scope="col">削除</th>
      </tr>
    </thead>
    <tbody>

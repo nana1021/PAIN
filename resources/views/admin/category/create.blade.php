@@ -1,9 +1,9 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
 @section('content')
 <div class="container mt-3" style="max-width: 720px;">
   <div class="text-right">
-  <a href="{{ url('/admin/recipe/create') }}">＜ 戻る</a>
+  <a href="{{ url('/admin/recipe/create') }}">＜ ルセット一覧に戻る</a>
   </div>
   
   @if (session('message'))
@@ -23,7 +23,7 @@
   </form>
   
   <div class="my-4">
-    <a href="{{ url('/admin/category') }}">＞ 一覧・編集ページへ</a>
+    <a href="{{ url('/admin/category') }}">＞ カテゴリー一覧・編集ページへ</a>
   </div>
 </div>
 @endsection

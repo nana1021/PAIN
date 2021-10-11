@@ -8,60 +8,66 @@
         </div>
         <div class="row">
             <div class="col text-left">
-                <a type="button" href="{{ url('admin/recipe/create/') }}" class="btn btn-danger text-right" role="button"><i class="fas fa-plus"></i> 新規追加</a>
+                <a type="button" href="{{ url('admin/recipe/create/') }}" class="btn btn-success text-right btn-sm" role="button"><i class="fas fa-plus"></i> 新規追加</a>
             </div>
+                   <form action="{{ action('Admin\RecipeController@index') }}" method="get">
                     <div class="form-group row">
-                        <label class="col-md-2">品名</label>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control" name="cond_title" value="{{ $cond_title }}">
-                        </div>
-                        <div class="col-md-2">
-                            {{ csrf_field() }}
-                            <input type="submit" class="btn btn-danger" value="検索">
-                        </div>
+                    <label class="col-md-2">品名</label>
+                    <div class="col-md-8">
+                    <input type="text" class="form-control" name="cond_title" value="{{ $cond_title }}">
                     </div>
-                </form>
+                    <div class="col-md-2">
+                        {{ csrf_field() }}
+                        <input type="submit" class="btn btn-warning btn-sm" value="検索">
+                    </div>
+                    @if (session('message'))
+                    <div  class="alert alert-danger" role="alert">{{ session('message') }}</div>
+                    @endif
+                   </form>
+               </div>
             </div>
-        </div>
+        </div> 
         <div class="row">
             <div class="list-recipe col-md-8 mx-auto">
                 <div class="row">
-                    <table class="table table-info">
+                    <table class="table">
                         <thead>
                             <tr>
-                                <th width="5%">ID</th>
-                                <th width="20%">写真</th>
-                                <th scope="20%">カテゴリー</th>
-                                <th width="40%">品名</th>
+                                <th width="6%"></th>
                                 <th width="10%"></th>
-                              -{{--  <th width="50%">process</th> --}}
+                                <th width="12%"></th>
+                                <th width="25%"></th>
+                                <th width="25%"></th>
+                              {{--  <th width="50%">process</th> --}}
                             </tr>
                         </thead>
                         <tbody>
-                            @if($posts != null)
-                            @foreach($posts as $recipe)
+                            @if($recipes != null)
+                            @foreach($recipes as $recipe)
                                 <tr>
-                                    <td>{{ $recipe->id }}</td>
-                                    <td>{{ \Str::limit($recipe->image, 100) }}
-                                      <img src="{{ asset('storage/image/' . $recipe->image_path) }}"class="rounded-circle"></td>
-                                    <td>{{ \Str::limit($recipe->category_name) }}</td>
-                                    <td>{{ \Str::limit($recipe->title, 100) }}</td>
-                              {{--      <td>{{ \Str::limit($recipe->body, 250) }}</td> --}}
-                                    <td>
-  
+                                    <th>{{ $recipe->id }}
+                                    <p class=border>{{ \Str::limit($recipe->sales_status) }}</p>
+                                    </th>
+                                    <td>{{ \Str::limit($recipe->image, 10) }}
+                                      <img src="{{ asset('storage/image/' . $recipe->image_path) }}"class="rounded"></td>
+                                    <td><p>作成日<br>{{ $recipe->created_at->format('Y/m/d') }}</p>
+                                        <p>最終編集日<br>{{ $recipe->updated_at->format('Y/m/d') }}</p></td>
+                                    <td><p>{{ \Str::limit($recipe->category_name, 20) }}</p>
+                                        <p><font size="6">{{ \Str::limit($recipe->title, 25) }}</p></td>
+                              
+                                    <td class="btn-group">
                                     <div>
                                       <a href="{{ action('Admin\RecipeController@show', ['id' => $recipe->id]) }}">
-                                      <button type="button" class="btn btn-outline-success"><i class="far fa-edit"></i> ルセット詳細</button></a>
+                                      <button type="button" class="btn btn-outline-success btn-sm"> ルセット詳細</button></a>
                                     </div>
                                     <div>
                                       <a href="{{ action('Admin\RecipeController@edit', ['id' => $recipe->id]) }}">
-                                      <button type="button" class="btn btn-outline-danger"><i class="far fa-edit"></i> 編集</button></a>
+                                      <button type="button" class="btn btn-outline-danger btn-sm"><i class="far fa-edit"></i> 編集</button></a>
                                     </div>
                                     <div class="btn-toolbar">
-                                      <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal{{$recipe->id}}"><i class="far fa-trash-alt"></i> 削除</button>
-          {{-- <button type="button" class="btn btn-outline-primary"><i class="far fa-trash-alt"></i> 削除</button> 
-           <!-- Button trigger modal -->  --}}
-                                 <!-- Modal -->
+                                      <a><button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#exampleModal{{$recipe->id}}"><i class="far fa-trash-alt"></i> 削除</button></a>
+            
+                                  <!--Modal-->
                                       <div class="modal fade" id="exampleModal{{$recipe->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                           <form action="{{ route('recipe.destroy', [ 'recipe' => $recipe->id ]) }}" method="POST">
@@ -90,12 +96,12 @@
                                 </tr> 
                             @endforeach
                             @else
-                            <h3>まだ投稿されてません</h3>
+                            <h3>まだ投稿されていません</h3>
                             @endif
                         </tbody>
                     </table>
+                     {{ $recipes->links() }}
                 </div>
             </div>
-        </div>
-    </div>
+        </div>  
 @endsection

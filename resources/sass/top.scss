@@ -6,7 +6,7 @@ header {
 }
 .container-fluid {
   height: 100vh;
-  background-image: url(../images/baguettes-gce4470054_1920.jpg);
+  background-image: url(../images/pain.jpg);
   text-align: center;
   padding-top: 10vh;
 }
@@ -59,22 +59,12 @@ header {
   }
 }
 
-@font-face {
-  font-family: 'Corporate-Logo';
-  src: url('../fonts/Corporate-Logo-Medium-ver2.ttf');
-}
 body {
   font-family: "Corporate-Logo";
 }
 
-.btn {
-  display: inline-block;
-  padding: .75em 4em;
-  border: 2px solid #333;
-  border-radius: 3em .5em 2em .5em/.4em 2em .5em 3em;
-  color: #333;
-  text-decoration: none;
-  text-align: center;
+strong {
+  text-shadow: 1px 1px 1px #808080;;
 }
 
 .navbar-laravel {
@@ -94,8 +84,31 @@ body {
   display: inline-block;
   position: relative;
   left: 150px;
+  margin-right: 100px;
   list-style: none;
   padding: 10px;
   color: #fff;
   font-size: 25px;
+}
+.nav-item a {
+  color: #fff !important;
+  position: relative;
+  right: 80px;
+  font-size: 19px;
+}
+
+.btn {
+  display: inline-block;
+  padding: .75em 3em;
+  border: 2px solid #333;
+  border-radius: 3em .5em 2em .5em/.4em 2em .5em 3em;
+  color: #333;
+  text-decoration: none;
+  text-align: center;
+}
+
+.fa-bread-slice {
+  color: #fff;
+  position: relative;
+  right: 5px;
 }

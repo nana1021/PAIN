@@ -16,9 +16,7 @@
          {{-- Laravel標準で用意されているJavascriptを読み込みます --}}
         <script src="{{ secure_asset('js/app.js') }}" defer></script>
 
-        <!-- Fonts -->
-        <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+        <script src="https://kit.fontawesome.com/0462175492.js" crossorigin="anonymous"></script>
 
         <!-- Styles -->
         {{-- Laravel標準で用意されているCSSを読み込みます --}}
@@ -30,14 +28,16 @@
         <div id="app">
             <nav class="navbar navbar-expand-md navbar-danger navbar-laravel">
                 <div class="container">
+                  <i class="fas fa-bread-slice fa-lg"></i>
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'パンを焼く') }}
                     </a>
                     <div class="nav-link">
+                        <a href="{{ url('/') }}">Home</a>
                       @guest
-                        <a href="{{ action('Admin\RecipeController@index') }}">ルセット検索</a>
+                        <a href="{{ action('Admin\RecipeController@index') }}">ルセット一覧</a>
                       @else
-                        <a href="{{ action('Admin\RecipeController@index', ['user_id' => Auth::user()->id]) }}">ルセット検索</a>
+                        <a href="{{ action('Admin\RecipeController@index', ['user_id' => Auth::user()->id]) }}">ルセット一覧</a>
                       @endguest
                         <a href="/admin/recipe/create">ルセット作成</a>
                     </div>
@@ -61,7 +61,7 @@
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <a class="dropdown-item text-danger" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}

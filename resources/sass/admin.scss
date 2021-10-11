@@ -1,57 +1,67 @@
-@font-face {
-  font-family: 'Corporate-Logo';
-  src: url('../fonts/Corporate-Logo-Medium-ver2.ttf');
-}
-
 body {
-  height: 100vh;
-  background-size: cover;
   background-repeat: repeat;
   background-position: center center;
   font-family: "Corporate-Logo";
 }
-
-.box {
-  padding: 1em;
-  margin: auto auto;
-  width: 77%;
-  color: #fff;
-  border: dotted;
-  border-color: #0000AA;
-  border-width: 12px 12px;
-  border-radius: 240px 15px 100px 15px / 15px 200px 15px 185px;
-  background-color: rgba( 0, 187, 0, 0.85 );
+main {
+  background: #fdf1ec;
 }
 
 .py-4 {
-  height: 100vh;
   background-image: url(../images/bread.png);
   background-size: 15%;
-  padding-top: 10vh;
-  
+  min-height: 100vh;
+  padding-top: 10vh; 
 }
 
+h1 {
+  padding-bottom: 20px;
+}
 
+img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+}
+
+.btn {
+  display: inline-block;
+  padding: .75em 1em;
+  border: 2px solid #333;
+  border-radius: 3em .5em 2em .5em/.4em 2em .5em 3em;
+  color: #333;
+  text-decoration: none;
+  text-align: center;
+}
+.btn-group a {
+  padding: 0px 20px 0 0px;
+  position: relative;
+  top: 30px;
+}
+
+.fa-bread-slice {
+  color: #fff;
+  padding-right: 10px;
+}
 .navbar-laravel {
-  background-color: #dc3545;
+  background-color: #033560;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  padding: 0;
 }
-
 .navbar-brand {
   color: #fff !important;
-  font-size: 25px;
+  font-size: 22px;
 }
-
 .nav-item {
   color: #fff !important;
-  font-size: 20px;
+  font-size: 15px;
   position: relative;
   left: 250px;
 }
-
 .nav-link a {
   display: inline-block;
   position: relative;
+  margin-right: 100px;
   left: 170px;
   list-style: none;
   padding: 10px;
@@ -59,78 +69,84 @@ body {
   font-size: 15px;
 }
 
-.table {
-  color: #fff;
-  background-color: rgba(0, 250, 0, 0.75);
-}
-
-.list-group-item {
-  border-color: #fff;
-  background-color: #000;
-}
-
-.login-box {
-  background-color: rgba(0, 250, 0, 0.25);
-  border: 2px solid #336666;
-  border-radius: 240px 15px 100px 15px / 15px 200px 15px 185px;
-}
-
-.login-header {
-  background-color: rgba(0, 250, 90, 0.25)
-}
-
-.login-body {
-  background-color: rgba(230, 250, 80, 0.25);
-  border-radius: 240px 15px 100px 15px / 15px 200px 15px 185px;
-}
-img {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-}
-
-table {
-  margin: 0.5rem;
-  width: 100%;
-}
-th {
-  font-weight: normal;
-  background: #f8f6f2;
-  vertical-align: middle;
-  padding: 1rem;
-}
-.text-prewrap{
-   white-space: pre-wrap;
-}
-p,
-td {
-  display: block;
-}
-.btn {
-  display: inline-block;
-  padding: .75em 4em;
-  border: 2px solid #333;
-  border-radius: 3em .5em 2em .5em/.4em 2em .5em 3em;
-  color: #333;
-  text-decoration: none;
-  text-align: center;
-}
-
-button {
-  height: 50px;
-  width: 80%;
-  display: inline-flex;
-  flex-direction: column;
-  align-items: start;
-}
 .card {
   margin: 50px;
   border-radius: 240px 15px 100px 15px / 15px 200px 15px 185px;
-  border: 2px solid #336666;
+  border: 3px solid #336666;
 }
 .card-header {
   background-color: rgba(20, 250, 80, 0.2);
 }
 .card-body {
-  background-color: rgba(230, 250, 80, 0.2);
+  background-color: #FFFFCC;
+  border-radius: 240px 15px 100px 15px / 15px 200px 15px 185px;
+}
+.login-header {
+  background-color: #DDFFFF;
+}
+
+.box {
+  padding: 20px 0px;
+  margin: auto auto;
+  width: 77%;
+  color: #033560;
+  border: 3px solid #033560;
+  border-radius: 240px 15px 100px 15px / 15px 200px 15px 185px;
+  background-color: #CEF9DC;
+}
+.box-edit {
+  padding: 20px 0px;
+  margin: auto auto;
+  width: 77%;
+  color: #033560;
+  border: 3px solid #033560;
+  border-radius: 240px 15px 100px 15px / 15px 200px 15px 185px;
+  background-color: #FFDBC9;
+}
+
+table {
+  margin: 0.5rem;
+  width: 100%;
+  color: #033560;
+  border: #033560;
+  border-collapse: collapse;
+  }
+th {
+  font-weight: normal;
+  background: rgba(180, 250, 210, 1);
+  vertical-align: middle;
+  padding: 1rem;
+  border: solid 1px #033560;
+}
+tr {
+  background-color: rgba(230, 250, 200, 1);
+  border-bottom: 1px solid #033560;
+}
+
+td {
+  border-bottom: 1px solid #033560;
+}
+
+.btn-group {
+  border-bottom: none;
+}
+
+.text-right a {
+  position: relative;
+  left: 430px;
+}
+
+.radio-inline {
+  position: relative;
+  left: 30px;
+  bottom: 10px;
+  margin-right: 20px;
+}
+
+ul {
+  color: #AA0000;
+}
+
+.border {
+  color: #033560;
 }

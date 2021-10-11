@@ -149,7 +149,7 @@ return [
        'image_path' => '完成写真',
        'title' => '品名',
        'body' => '作り方',
-       'name' => 'カテゴリー',
+       'category_name' => 'カテゴリー',
        'material' => '材料',
     ],
 

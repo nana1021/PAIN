@@ -7,7 +7,7 @@ header {
 
 .container-fluid {
   height: 100vh;
-  background-image: url(/images/baguettes-gce4470054_1920.jpg?30eea97d1fc0813c0b3acb021adf9aba);
+  background-image: url(../images/pain.jpg);
   text-align: center;
   padding-top: 10vh;
 }
@@ -57,34 +57,22 @@ header {
   }
 
   .container .jumbotron,
-  .container-fluid .jumbotron {
+.container-fluid .jumbotron {
     padding-right: 60px;
     padding-left: 60px;
   }
 
   .jumbotron h1,
-  .jumbotron .h1 {
+.jumbotron .h1 {
     font-size: 100px;
   }
 }
-
-@font-face {
-  font-family: "Corporate-Logo";
-  src: url(/fonts/Corporate-Logo-Medium-ver2.ttf?e3f8ea719cbba9ac334a0fafc25d9051);
-}
-
 body {
   font-family: "Corporate-Logo";
 }
 
-.btn {
-  display: inline-block;
-  padding: 0.75em 4em;
-  border: 2px solid #333;
-  border-radius: 3em 0.5em 2em 0.5em/0.4em 2em 0.5em 3em;
-  color: #333;
-  text-decoration: none;
-  text-align: center;
+strong {
+  text-shadow: 1px 1px 1px #808080;
 }
 
 .navbar-laravel {
@@ -107,9 +95,32 @@ body {
   display: inline-block;
   position: relative;
   left: 150px;
+  margin-right: 100px;
   list-style: none;
   padding: 10px;
   color: #fff;
   font-size: 25px;
 }
 
+.nav-item a {
+  color: #fff !important;
+  position: relative;
+  right: 80px;
+  font-size: 19px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75em 3em;
+  border: 2px solid #333;
+  border-radius: 3em 0.5em 2em 0.5em/0.4em 2em 0.5em 3em;
+  color: #333;
+  text-decoration: none;
+  text-align: center;
+}
+
+.fa-bread-slice {
+  color: #fff;
+  position: relative;
+  right: 5px;
+}

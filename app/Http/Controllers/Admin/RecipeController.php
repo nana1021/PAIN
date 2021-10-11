@@ -8,6 +8,7 @@ use App\Recipe;
 use App\Category;
 use App\User;
 use Auth;
+use Illuminate\Support\Facades\DB;
 
 class RecipeController extends Controller
 {
@@ -34,8 +35,7 @@ class RecipeController extends Controller
       // フォームから送信されてきたimageを削除する
       unset($form['image']);
       
-      $recipe->fill($form);
-      $recipe->save();
+      $recipe->fill($form)->save();
       
       return redirect('admin/recipe/create');
     }
@@ -43,31 +43,26 @@ class RecipeController extends Controller
     public function index(Request $request)
     {
       $user_id = $request->user_id;
-        if($user_id != '') {
-          $posts = Recipe::where('user_id', $user_id)->get();
-      } else{
-          // それ以外はすべてのニュースを取得する
-         $posts = null;  
-      }
       $cond_title = $request->cond_title;//$cond_titleに値を代入、なければnull 下の行の$cond_title
-      $cond_title_find = ['user_id' => '$user_id', 'cond_title' => '$cond_title']; 
         if ($cond_title != '') {
           // 検索されたら検索結果を取得する
-          $posts = Recipe::where($cond_title_find)->get();
-      }
-     return view('admin.recipe.index',['posts' => $posts, 'cond_title' => $cond_title]);
+          $recipes = Recipe::where('user_id', Auth::id())->where('title', $cond_title)->paginate(5);
+        }
+        else {
+          $recipes = Recipe::where('user_id', Auth::id())->paginate(5);   //ログインユーザーが投稿したもののみにページ表示
+        }
+      return view('admin.recipe.index',['recipes' => $recipes, 'cond_title' => $cond_title, 'user_id' => $user_id]);
     }
-    
+
     public function edit(Request $request)
   {
-      // News Modelからデータを取得する
+      // Modelからデータを取得する
       $recipe = Recipe::find($request->id);
       if (empty($recipe)) {
         abort(404);    
       }
       return view('admin.recipe.edit', ['recipe_form' => $recipe]);
   }
-  
   
   public function update(Request $request)
   {
@@ -92,7 +87,7 @@ class RecipeController extends Controller
       // 該当するデータを上書きして保存する
       $recipe->fill($recipe_form)->save();
         
-      return redirect('/')->with('message','ルセットが更新されました。');
+      return redirect('/admin/recipe')->with('message','ルセットが更新されました。');
   }
   
   public function destroy($id)

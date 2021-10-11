@@ -15,7 +15,6 @@
         <!-- Scripts -->
          {{-- Laravel標準で用意されているJavascriptを読み込みます --}}
         <script src="{{ secure_asset('js/app.js') }}" defer></script>
-
         <script src="https://kit.fontawesome.com/0462175492.js" crossorigin="anonymous"></script>
 
         <!-- Styles -->

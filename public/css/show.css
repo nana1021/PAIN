@@ -3,13 +3,23 @@ body {
   font-family: "Corporate-Logo";
 }
 
-.wrapper {
-  height: 500px;
-  width: 840px;
-  margin: 40px auto 0 380px;
+@media screen and (min-width: 768px) {
+  .show_right-cont {
+    padding: 30px 30px 30px 380px;
+  }
+}
+.show_right-cont .wrapper {
+  width: 100%;
+  margin-bottom: 40px;
   border-radius: 7px 7px 7px 7px;
   /* VIA CSS MATIC https://goo.gl/cIbnS */
   box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+}
+@media screen and (min-width: 768px) {
+  .show_right-cont .wrapper {
+    height: 500px;
+    width: 840px;
+  }
 }
 
 .product-img {
@@ -98,7 +108,7 @@ h5 {
   color: #8d8d8d;
   height: 350px;
   width: 840px;
-  margin: 20px auto 0 365px;
+  margin-bottom: 40px;
   padding: 40px;
   line-height: 1.7em;
   font-size: 22px;
@@ -121,25 +131,29 @@ h3 {
   white-space: pre-wrap;
 }
 
-#global-head {
-  position: fixed;
-  color: #033560;
-  width: 260px;
-  height: 200px;
-  text-align: center;
-  padding-top: 60px;
-  z-index: 100;
+@media screen and (min-width: 768px) {
+  #global-head {
+    position: fixed;
+    color: #033560;
+    width: 260px;
+    height: 200px;
+    text-align: center;
+    padding-top: 60px;
+    z-index: 100;
+  }
 }
 
-#sidebar {
-  font-size: 15px;
-  padding-top: 220px;
-  width: 260px;
-  height: 100%;
-  position: fixed;
-  color: #033560;
-  background: #fff;
-  text-align: center;
+@media screen and (min-width: 768px) {
+  #sidebar {
+    font-size: 15px;
+    padding-top: 220px;
+    width: 260px;
+    height: 100%;
+    position: fixed;
+    color: #033560;
+    background: #fff;
+    text-align: center;
+  }
 }
 
 #global-nav ul {
@@ -188,7 +202,6 @@ h3 {
 .side-box {
   width: 330px;
   height: 500px;
-  margin: 40px 0 0 70px;
   letter-spacing: 0.05em;
   background: #fff;
   border-radius: 7px 7px 7px 7px;
@@ -207,10 +220,6 @@ h3 {
   background: #EDFFBE;
   font-weight: bold;
   text-align: center;
-}
-
-.product-box, .side-box {
-  float: left;
 }
 
 .dropdown-item {

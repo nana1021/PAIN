@@ -1,16 +1,33 @@
+$pc-width: 1024px;
+$ipad-width: 768px;
+$side-width: 568px;
+
+@mixin media-query($device) {
+    @media screen and (min-width: $device) {
+        @content;
+    }
+}
 body {
   background-color: #fdf1ec;
   font-family: "Corporate-Logo";
 }
-.wrapper {
-  height: 500px;
-  width: 840px;
-  margin: 40px auto 0 380px;
-  border-radius: 7px 7px 7px 7px;
-  /* VIA CSS MATIC https://goo.gl/cIbnS */
-  -webkit-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
-  -moz-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
-  box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+.show_right-cont {
+  @include media-query($ipad-width){
+  padding: 30px 30px 30px 380px;
+  }
+  .wrapper {
+    width: 100%;
+    margin-bottom: 40px;
+    border-radius: 7px 7px 7px 7px;
+    /* VIA CSS MATIC https://goo.gl/cIbnS */
+    -webkit-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+    @include media-query($ipad-width){
+      height: 500px;
+      width: 840px;
+    }
+  }
 }
 .product-img {
   float: left;
@@ -112,7 +129,7 @@ h5 {
   color:#8d8d8d;
   height: 350px;
   width: 840px;
-  margin: 20px auto 0 365px;
+  margin-bottom: 40px;
   padding: 40px;
   line-height: 1.7em;
   font-size: 22px;
@@ -138,6 +155,7 @@ h3 {
 }
 
 #global-head {
+    @include media-query($ipad-width){
     position: fixed;
     color: #033560;
     width: 260px;
@@ -145,8 +163,10 @@ h3 {
     text-align: center;
     padding-top: 60px;
     z-index: 100;
+    }
 }
 #sidebar {
+  @include media-query($ipad-width){
     font-size: 15px;
     padding-top: 220px;
     width: 260px;
@@ -155,6 +175,7 @@ h3 {
     color: #033560;
     background: #fff;
     text-align: center;
+  }
 }
 #global-nav ul {
     list-style: none;
@@ -197,7 +218,6 @@ h3 {
 .side-box {
     width: 330px;
     height: 500px;
-    margin: 40px 0 0 70px;
     letter-spacing: 0.05em;
     background: #fff;
     border-radius: 7px 7px 7px 7px;
@@ -216,10 +236,6 @@ h3 {
    background: #EDFFBE;
    font-weight: bold;
    text-align: center;
-}
-
-.product-box, .side-box {
-  float: left;
 }
 
 .dropdown-item {

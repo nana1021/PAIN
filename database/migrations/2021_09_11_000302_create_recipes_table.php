@@ -24,8 +24,6 @@ class CreateRecipesTable extends Migration
             $table->string('memo');
             $table->integer('user_id');
             $table->string('edited_at');
-            $table->string('created_at');
-            $table->string('updated_at');
             $table->timestamps();
         });
     }

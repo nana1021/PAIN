@@ -87,7 +87,7 @@
                     </div>
                     {{ csrf_field() }}
                      <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
-                     <input type="submit" class="btn btn-light" value="更新">
+                     <input type="submit" class="btn btn-info" value="更新">
                 </form>
             </div>
         </div>

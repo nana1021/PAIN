@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">お知らせ</div>
+                <div class="login-header card-header mx-auto">お知らせ</div>
 
                 <div class="card-body">
                     @if (session('status'))

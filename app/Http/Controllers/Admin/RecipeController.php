@@ -36,7 +36,9 @@ class RecipeController extends Controller
       // フォームから送信されてきたimageを削除する
       unset($form['image']);
       
-      $recipe->fill($form)->save();
+      $recipe->fill($form);
+      dd($recipe);
+      $recipe->save();
       
       return redirect('admin/recipe');
     }

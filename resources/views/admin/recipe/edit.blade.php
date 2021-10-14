@@ -22,7 +22,7 @@
                             <div class="form-text text-danger">
                                 設定中: {{ $recipe_form->image_path }}
                                 {{ \Str::limit($recipe_form->image, 10) }}
-                                      <img src="{{ asset('storage/image/' . $recipe_form->image_path) }}"class="rounded-circle">
+                                      <img src="{{ $recipe_form->image_path }}"class="rounded-circle">
                             </div>
                             <div class="form-check">
                                 <label class="form-check-label">

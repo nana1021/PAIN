@@ -49,7 +49,7 @@
                                     <p class=border>{{ \Str::limit($recipe->sales_status) }}</p>
                                     </th>
                                     <td>{{ \Str::limit($recipe->image, 10) }}
-                                      <img src="{{ asset('storage/image/' . $recipe->image_path) }}"class="rounded"></td>
+                                      <img src="{{ $recipe->image_path }}"class="rounded"></td>
                                     <td><p>作成日<br>{{ $recipe->created_at->format('Y/m/d') }}</p>
                                         <p>最終編集日<br>{{ $recipe->updated_at->format('Y/m/d') }}</p></td>
                                     <td><p>{{ \Str::limit($recipe->category_name, 20) }}</p>

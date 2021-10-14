@@ -8,7 +8,7 @@ use App\Recipe;
 use App\Category;
 use App\User;
 use Auth;
-use Illuminate\Support\Facades\DB;
+use Storage;
 
 class RecipeController extends Controller
 {
@@ -24,8 +24,9 @@ class RecipeController extends Controller
        $form = $request->all();
        
         if (isset($form['image'])) { //issetは引数の中にデータがあるかないかを判断するメソッド
-        $path = $request->file('image')->store('public/image');//storeはどこのフォルダにファイルを保存するか、パスを指定するメソッド
-        $recipe->image_path = basename($path);//basenameはパスではなくファイル名だけ取得するメソッド
+        $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
+        $recipe->image_path = Storage::disk('s3')->url($path);
+        
       } else {
         $recipe->image_path = null;
     }
@@ -75,12 +76,11 @@ class RecipeController extends Controller
       if ($request->remove == 'true') {
           $recipe_form['image_path'] = null;
       } elseif ($request->file('image')) {
-          $path = $request->file('image')->store('public/image');
-          $recipe_form['image_path'] = basename($path);
+        $path = Storage::disk('s3')->putFile('/',$recipe_form['image'],'public');
+        $recipe->image_path = Storage::disk('s3')->url($path);
       } else {
           $recipe_form['image_path'] = $recipe->image_path;
       }
-
       unset($recipe_form['image']);
       unset($recipe_form['remove']);
       unset($recipe_form['_token']);

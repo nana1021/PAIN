@@ -68,7 +68,7 @@
                         <div class="wrapper">
                             <div class="product-img">
                                 @if ($recipe->image_path)
-                                    <img src="{{ asset('storage/image/' . $recipe->image_path) }}">
+                                    <img src="{{ $recipe->image_path }}">
                                 @endif
                             </div>
                             <div class="product-info">

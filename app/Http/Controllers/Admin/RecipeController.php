@@ -38,7 +38,7 @@ class RecipeController extends Controller
       
       $recipe->fill($form)->save();
       
-      return redirect('admin/recipe/create');
+      return redirect('admin/recipe');
     }
     
     public function index(Request $request)

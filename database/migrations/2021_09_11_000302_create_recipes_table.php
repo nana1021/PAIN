@@ -23,7 +23,7 @@ class CreateRecipesTable extends Migration
             $table->string('body');
             $table->string('memo')->nullable();
             $table->integer('user_id');
-            $table->string('edited_at');
+            $table->string('edited_at')->nullable();
             $table->timestamps();
         });
     }

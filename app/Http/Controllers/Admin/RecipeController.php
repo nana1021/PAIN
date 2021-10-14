@@ -37,7 +37,7 @@ class RecipeController extends Controller
       unset($form['image']);
       
       $recipe->fill($form);
-      dd($recipe);
+      // dd($recipe);
       $recipe->save();
       
       return redirect('admin/recipe');

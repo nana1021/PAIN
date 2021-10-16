@@ -4,11 +4,49 @@ header {
   background-repeat: no-repeat;
   background-position: center center;
 }
+body {
+  font-family: "Corporate-Logo";
+}
 .container-fluid {
   height: 100vh;
   background-image: url(../images/pain.jpg);
   text-align: center;
   padding-top: 10vh;
+}
+
+.navbar-laravel {
+  position: relative;
+  bottom: 70px;
+  background-color: rgba(0, 0, 0, 0);
+  border-bottom: 1px solid #CCCCCC;
+}
+.navbar-brand {
+  color: #fff !important;
+  font-size: 35px;
+}
+.navbar-nav {
+  font-size: 25px;
+}
+.nav-link a {
+  display: inline-block;
+  position: relative;
+  left: 150px;
+  margin-right: 100px;
+  list-style: none;
+  padding: 10px;
+  color: #fff;
+  font-size: 25px;
+}
+.nav-item a {
+  color: #fff !important;
+  position: relative;
+  right: 80px;
+  font-size: 19px;
+}
+.fa-bread-slice {
+  color: #fff;
+  position: relative;
+  right: 5px;
 }
 
 .jumbotron {
@@ -59,42 +97,8 @@ header {
   }
 }
 
-body {
-  font-family: "Corporate-Logo";
-}
-
 strong {
   text-shadow: 1px 1px 1px #808080;;
-}
-
-.navbar-laravel {
-  position: relative;
-  bottom: 70px;
-  background-color: rgba(0, 0, 0, 0);
-  border-bottom: 1px solid #CCCCCC;
-}
-.navbar-brand {
-  color: #fff !important;
-  font-size: 35px;
-}
-.navbar-nav {
-  font-size: 25px;
-}
-.nav-link a {
-  display: inline-block;
-  position: relative;
-  left: 150px;
-  margin-right: 100px;
-  list-style: none;
-  padding: 10px;
-  color: #fff;
-  font-size: 25px;
-}
-.nav-item a {
-  color: #fff !important;
-  position: relative;
-  right: 80px;
-  font-size: 19px;
 }
 
 .btn {
@@ -105,10 +109,4 @@ strong {
   color: #333;
   text-decoration: none;
   text-align: center;
-}
-
-.fa-bread-slice {
-  color: #fff;
-  position: relative;
-  right: 5px;
 }

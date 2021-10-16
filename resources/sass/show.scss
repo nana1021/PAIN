@@ -11,6 +11,81 @@ body {
   background-color: #fdf1ec;
   font-family: "Corporate-Logo";
 }
+
+#global-head {
+    @include media-query($ipad-width){
+    position: fixed;
+    color: #033560;
+    width: 230px;
+    height: 200px;
+    text-align: center;
+    padding-top: 60px;
+    z-index: 100;
+    }
+}
+#sidebar {
+  @include media-query($ipad-width){
+    font-size: 15px;
+    padding-top: 220px;
+    width: 230px;
+    height: 100%;
+    position: fixed;
+    color: #033560;
+    background: #fff;
+    text-align: center;
+  }
+}
+#global-nav ul {
+    list-style: none;
+    margin-left: 0;
+}
+#global-nav > ul > li {
+    position: relative;
+    bottom: 30px;
+    right: 15px;
+}
+ 
+#global-nav a {
+    color: #033560;
+    text-decoration: none;
+    display: block;
+    padding: 15px 0;
+    transition: background-color .3s linear;
+}
+/* sub-menu */
+#global-nav .sub-menu-nav {
+    position: fixed;
+    background: #033560;
+    color: #fff;
+    top: 0;
+    padding-top: 90px;
+    left: 230px;
+    width: 0;
+    height: 100%;
+    overflow: hidden;
+    transition: width .2s ease-out;
+} 
+.fa-bread-slice{
+    position: relative;
+    bottom: 10px;
+}
+.log-btn {
+  position: relative;
+  bottom: 50px;
+}
+.dropdown-item {
+    display: block;
+    width: 60%;
+    padding: 0.25rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+}
+
 .show_right-cont {
   @include media-query($ipad-width){
   padding: 30px 30px 30px 380px;
@@ -65,13 +140,11 @@ body {
 
 .product-text h1,
 .product-price-btn p {
-//   font-family: 'Bentham', serif;
 }
 
 .product-text h2 {
   margin: 0 0 47px 38px;
   font-size: 13px;
-//   font-family: 'Raleway', sans-serif;
   font-weight: 400;
   text-transform: uppercase;
   color: #d2d2d2;
@@ -82,7 +155,6 @@ body {
   height: 330px;
   width: 350px;
   margin: 0 0 0 38px;
-//   font-family: 'Playfair Display', serif;
   color: #8d8d8d;
   line-height: 1.7em;
   font-size: 15px;
@@ -98,13 +170,6 @@ h5 {
   left: 15px;
 }
 
-// span {
-//   display: inline-block;
-//   height: 50px;
-// //   font-family: 'Suranna', serif;
-//   font-size: 34px;
-// }
-
 .product-price-btn button {
   float: right;
   display: inline-block;
@@ -114,7 +179,6 @@ h5 {
   box-sizing: border-box;
   border: transparent;
   border-radius: 60px;
-//   font-family: 'Raleway', sans-serif;
   font-size: 14px;
   font-weight: 500;
   text-transform: uppercase;
@@ -154,66 +218,22 @@ h3 {
   white-space: pre-wrap;
 }
 
-#global-head {
-    @include media-query($ipad-width){
-    position: fixed;
-    color: #033560;
-    width: 260px;
-    height: 200px;
-    text-align: center;
-    padding-top: 60px;
-    z-index: 100;
-    }
+.details {
+	position: absolute;
+	left: 1155px;
+	top: 25px;
+	z-index: 1;
+	width: 75px;
+	height: 75px;
+	padding: 14.5px 0;
+	text-align: center;	
+	border-radius: 100%;
+	background: #e74c3c;
 }
-#sidebar {
-  @include media-query($ipad-width){
-    font-size: 15px;
-    padding-top: 220px;
-    width: 260px;
-    height: 100%;
-    position: fixed;
-    color: #033560;
-    background: #fff;
-    text-align: center;
-  }
-}
-#global-nav ul {
-    list-style: none;
-    margin-left: 0;
-}
-#global-nav > ul > li {
-    position: relative;
-    bottom: 30px;
-    right: 15px;
-}
- 
-#global-nav a {
-    color: #033560;
-    text-decoration: none;
-    display: block;
-    padding: 15px 0;
-    transition: background-color .3s linear;
-}
-/* sub-menu */
-#global-nav .sub-menu-nav {
-    position: fixed;
-    background: #033560;
-    color: #fff;
-    top: 0;
-    padding-top: 90px;
-    left: 260px;
-    width: 0;
-    height: 100%;
-    overflow: hidden;
-    transition: width .2s ease-out;
-} 
-.fa-bread-slice{
-    position: relative;
-    bottom: 10px;
-}
-.log-btn {
+.details a {
+  color: #fff;
   position: relative;
-  bottom: 50px;
+  top: 10px;
 }
 .side-box {
     width: 330px;
@@ -236,35 +256,4 @@ h3 {
    background: #EDFFBE;
    font-weight: bold;
    text-align: center;
-}
-
-.dropdown-item {
-    display: block;
-    width: 60%;
-    padding: 0.25rem 1.5rem;
-    clear: both;
-    font-weight: 400;
-    color: #212529;
-    text-align: center;
-    white-space: nowrap;
-    background-color: transparent;
-    border: 0;
-}
-
-.details {
-	position: absolute;
-	left: 1155px;
-	top: 25px;
-	z-index: 1;
-	width: 75px;
-	height: 75px;
-	padding: 14.5px 0;
-	text-align: center;	
-	border-radius: 100%;
-	background: #e74c3c;
-}
-.details a {
-  color: #fff;
-  position: relative;
-  top: 10px;
 }

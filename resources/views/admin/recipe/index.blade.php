@@ -10,20 +10,26 @@
             <div class="col text-left">
                 <a type="button" href="{{ url('admin/recipe/create/') }}" class="btn btn-success text-right btn-sm" role="button"><i class="fas fa-plus"></i> 新規追加</a>
             </div>
-                   <form action="{{ action('Admin\RecipeController@index') }}" method="get">
-                    <div class="form-group row">
-                    <label class="col-md-2">品名</label>
-                    <div class="col-md-8">
-                    <input type="text" class="form-control" name="cond_title" value="{{ $cond_title }}">
-                    </div>
-                    <div class="col-md-2">
-                        {{ csrf_field() }}
-                        <input type="submit" class="btn btn-warning btn-sm" value="検索">
-                    </div>
-                    @if (session('message'))
-                    <div  class="alert alert-danger" role="alert">{{ session('message') }}</div>
-                    @endif
-                   </form>
+            
+            <form action="{{ action('Admin\RecipeController@index') }}" method="get">
+                <div class="form-group row">
+                <select class="form-select form-select-sm col-md-3" aria-label=".form-select-sm example">
+                    <option selected>--販売状況選択--</option>
+                    <option value="1">販売中</option>
+                    <option value="2">休止中</option>
+                    <option value="3">どちらでもない</option>
+                </select>
+                <div class="col-md-7">
+                <input type="text" class="form-control" name="cond_title" placeholder="品名を入力してください" value="{{ $cond_title }}">
+                </div>
+                <div class="col-md-2">
+                    {{ csrf_field() }}
+                    <input type="submit" class="btn btn-warning btn-sm" value="検索">
+                </div>
+                @if (session('message'))
+                <div  class="alert alert-danger" role="alert">{{ session('message') }}</div>
+                @endif
+            </form> 
                </div>
             </div>
         </div> 
@@ -33,7 +39,7 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th width="5%"></th>
+                                <th width="6%"></th>
                                 <th width="9%"></th>
                                 <th width="11%"></th>
                                 <th width="24%"></th>

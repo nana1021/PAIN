@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Recipe;
 use App\Category;
 use App\User;
-use Auth;
 use Storage;
 
 class RecipeController extends Controller
@@ -49,7 +48,7 @@ class RecipeController extends Controller
       $cond_title = $request->cond_title;//$cond_titleに値を代入、なければnull 下の行の$cond_title
         if ($cond_title != '') {
           // 検索されたら検索結果を取得する
-          $recipes = Recipe::where('user_id', Auth::id())->where('title', $cond_title)->paginate(5);
+          $recipes = Recipe::where('user_id', Auth::id())->where('title', 'like', "%$cond_title%")->paginate(5); //曖昧検索
         }
         else {
           $recipes = Recipe::where('user_id', Auth::id())->paginate(5);   //ログインユーザーが投稿したもののみにページ表示

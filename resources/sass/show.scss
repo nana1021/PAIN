@@ -100,19 +100,19 @@ body {
     box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
     @include media-query($ipad-width){
       height: 500px;
-      width: 840px;
+      width: 800px;
     }
   }
 }
 .product-img {
   float: left;
   height: 500px;
-  width: 490px;
+  width: 500px;
 }
 
 .product-img img {
   height: 500px;
-  width: 490px;
+  width: 500px;
   border-radius: 7px 0 0 7px;
   object-fit: cover;
 }
@@ -120,14 +120,14 @@ body {
 .product-info {
   float: left;
   height: 500px;
-  width: 350px;
+  width: 300px;
   border-radius: 0 7px 10px 7px;
   background-color: #ffffff;
 }
 
 .product-text {
   height: 500px;
-  width: 350px;
+  width: 300px;
   padding-left: 30px;
 }
 
@@ -153,7 +153,7 @@ body {
 
 .product-text p {
   height: 330px;
-  width: 350px;
+  width: 300px;
   margin: 0 0 0 38px;
   color: #8d8d8d;
   line-height: 1.7em;
@@ -164,35 +164,35 @@ body {
 }
 
 h5 {
-  width: 280px;
+  width: 240px;
   border-bottom: solid 1px #8d8d8d;
   position: relative;
   left: 15px;
 }
 
-.product-price-btn button {
-  float: right;
-  display: inline-block;
-  height: 50px;
-  width: 176px;
-  margin: 0 40px 0 16px;
-  box-sizing: border-box;
-  border: transparent;
-  border-radius: 60px;
-  font-size: 14px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: #ffffff;
-  background-color: #9cebd5;
-  cursor: pointer;
-  outline: none;
-}
+// .product-price-btn button {
+//   float: right;
+//   display: inline-block;
+//   height: 50px;
+//   width: 176px;
+//   margin: 0 40px 0 16px;
+//   box-sizing: border-box;
+//   border: transparent;
+//   border-radius: 60px;
+//   font-size: 14px;
+//   font-weight: 500;
+//   text-transform: uppercase;
+//   letter-spacing: 0.2em;
+//   color: #ffffff;
+//   background-color: #9cebd5;
+//   cursor: pointer;
+//   outline: none;
+// }
 
 .card {
   color:#8d8d8d;
   height: 350px;
-  width: 840px;
+  width: 800px;
   margin-bottom: 40px;
   padding: 40px;
   line-height: 1.7em;
@@ -220,7 +220,7 @@ h3 {
 
 .details {
 	position: absolute;
-	left: 1115px;
+	left: 1075px;
 	top: 20px;
 	z-index: 1;
 	width: 80px;

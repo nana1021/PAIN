@@ -33,10 +33,10 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th width="6%"></th>
-                                <th width="10%"></th>
-                                <th width="12%"></th>
-                                <th width="25%"></th>
+                                <th width="5%"></th>
+                                <th width="9%"></th>
+                                <th width="11%"></th>
+                                <th width="24%"></th>
                                 <th width="25%"></th>
                               {{--  <th width="50%">process</th> --}}
                             </tr>

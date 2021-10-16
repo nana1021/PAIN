@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Recipe;
 use App\Category;
 use App\User;
+use Auth;
 use Storage;
 
 class RecipeController extends Controller

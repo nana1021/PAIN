@@ -4,20 +4,16 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <h1 class="text-primary">ルセット一覧</h1>
-        </div>
-        <div class="row">
             <div class="col text-left">
                 <a type="button" href="{{ url('admin/recipe/create/') }}" class="btn btn-success text-right btn-sm" role="button"><i class="fas fa-plus"></i> 新規追加</a>
             </div>
             
             <form action="{{ action('Admin\RecipeController@index') }}" method="get">
                 <div class="form-group row">
-                <select class="form-select form-select-sm col-md-3" aria-label=".form-select-sm example">
+                <select class="form-select form-select-sm col-md-3" aria-label=".form-select-sm example" name="sales_status" value="{{ $sales_status }}">
                     <option selected>--販売状況選択--</option>
-                    <option value="1">販売中</option>
-                    <option value="2">休止中</option>
-                    <option value="3">どちらでもない</option>
+                    <option value="販売中">販売中</option>
+                    <option value="休止中">休止中</option>
                 </select>
                 <div class="col-md-7">
                 <input type="text" class="form-control" name="cond_title" placeholder="品名を入力してください" value="{{ $cond_title }}">
@@ -52,7 +48,7 @@
                             @foreach($recipes as $recipe)
                                 <tr>
                                     <th>{{ $recipe->id }}
-                                    <p class=border>{{ \Str::limit($recipe->sales_status) }}</p>
+                                    <p>{{ \Str::limit($recipe->sales_status) }}</p>
                                     </th>
                                     <td>{{ \Str::limit($recipe->image, 10) }}
                                       <img src="{{ $recipe->image_path }}"class="rounded"></td>
@@ -106,7 +102,7 @@
                             @endif
                         </tbody>
                     </table>
-                     {{ $recipes->links() }}
+                    {{ $recipes->links() }}
                 </div>
             </div>
         </div>  

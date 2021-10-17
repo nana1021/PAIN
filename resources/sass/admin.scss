@@ -27,7 +27,7 @@ img {
 .btn {
   display: inline-block;
   padding: .75em 1em;
-  border: 2px solid #333;
+  border: 2px solid #778ca3;
   border-radius: 3em .5em 2em .5em/.4em 2em .5em 3em;
   color: #333;
   text-decoration: none;
@@ -107,26 +107,28 @@ img {
 }
 
 table {
-  margin: 0.5rem;
-  width: 100%;
-  color: #033560;
-  border: #033560;
-  border-collapse: collapse;
-  }
-th {
-  font-weight: normal;
-  background: rgba(180, 250, 210, 1);
-  vertical-align: middle;
-  padding: 1rem;
-  border: solid 1px #033560;
+ width: 100%;
+ text-align: center;
+ border-collapse: collapse;
+ border-spacing: 0;
+ border-radius: 10px 10px 10px 10px;
+ background-color: #FFFFF0;
 }
-tr {
-  background-color: rgba(230, 250, 200, 1);
-  border-bottom: 1px solid #033560;
+table th {
+ padding: 10px;
+ border-bottom: solid 4px #778ca3;
+ color: #778ca3
+}
+table tr {
+ padding: 10px;
+ border-bottom: solid 4px #778ca3;
+}
+th p {
+  color: #333;
 }
 
-td {
-  border-bottom: 1px solid #033560;
+.form-select {
+  height: 35px;
 }
 
 .btn-group {
@@ -151,4 +153,11 @@ ul {
 
 .border {
   color: #033560;
+}
+.page-item.active .page-link {
+  background-color: #FFC0CB;
+  border-color: #FFC0CB;
+}
+.page-item {
+  collor: #696969;
 }

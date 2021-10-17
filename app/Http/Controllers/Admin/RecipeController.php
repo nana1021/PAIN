@@ -9,6 +9,7 @@ use App\Category;
 use App\User;
 use Auth;
 use Storage;
+use Illuminate\Support\Facades\DB;
 
 class RecipeController extends Controller
 {
@@ -46,15 +47,24 @@ class RecipeController extends Controller
     public function index(Request $request)
     {
       $user_id = $request->user_id;
+      $sales_status = $request->sales_status;
       $cond_title = $request->cond_title;//$cond_titleに値を代入、なければnull 下の行の$cond_title
         if ($cond_title != '') {
           // 検索されたら検索結果を取得する
           $recipes = Recipe::where('user_id', Auth::id())->where('title', 'like', "%$cond_title%")->paginate(5); //曖昧検索
         }
         else {
-          $recipes = Recipe::where('user_id', Auth::id())->paginate(5);   //ログインユーザーが投稿したもののみにページ表示
+          $recipes = Recipe::where('user_id', Auth::id())->paginate(5);   //ログインユーザーが投稿したもののみ表示 ページ表示
         }
-      return view('admin.recipe.index',['recipes' => $recipes, 'cond_title' => $cond_title, 'user_id' => $user_id]);
+          $search = $request->input('sales_status');
+        if ($request->has('sales_status') && $search != ('--販売状況選択--')) {
+            $recipes = Recipe::where('sales_status', $search)->paginate(5);
+        }      
+      return view('admin.recipe.index',[
+        'recipes' => $recipes,
+        'cond_title' => $cond_title,
+        'user_id' => $user_id,
+        'sales_status' => $sales_status]);
     }
 
     public function edit(Request $request)
